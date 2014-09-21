@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string-array name="forwardstyle_list_titles">
+        <item>通过短信转移</item>
+        <item>通过邮件转移</item>
+    </string-array>
+    
+    <string-array name="forwardstyle_list_value">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    
+    <string name="base_function">基础功能</string>
+    <string name="forwardswitch">启用转移</string>
+    <string name="forwardswitch_summary">是否启用短信转移功能</string>
+    <string name="forwardstyle">转移方式</string>
+    <string name="phonenumber">接收号码</string>
+    <string name="emailaddress">接收邮件</string>
+    
+    <string name="other_function">其他</string>
+    <string name="feedback">意见反馈</string>
+    <string name="feedback_summary">将意见、问题通过E-mail反馈给我们</string>
+    <string name="about_smsforward">关于短信转移</string>
+    <string name="about_smsforward_summary">Version 1.0</string>
+</resources>

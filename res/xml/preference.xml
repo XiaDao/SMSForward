@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+    
+    <PreferenceCategory
+        android:title="@string/base_function">
+        <CheckBoxPreference
+            android:title="@string/forwardswitch"
+            android:key="forwardswitch"
+            android:defaultValue="false"
+            android:summary="@string/forwardswitch_summary" />
+        <ListPreference 
+            android:title="@string/forwardstyle"
+            android:key="forwardstyle"
+            android:entries="@array/forwardstyle_list_titles"
+            android:entryValues="@array/forwardstyle_list_value"
+            android:negativeButtonText="@null"
+        	android:positiveButtonText="@null"
+        	android:dependency="forwardswitch" />
+        <EditTextPreference
+            android:title="@string/phonenumber"
+            android:key="phonenumber"
+            android:inputType="number"
+            android:maxLength="11"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:dependency="forwardstyle" />
+        <EditTextPreference
+            android:title="@string/emailaddress"
+            android:key="emailaddress"
+            android:inputType="textEmailAddress"
+            android:selectAllOnFocus="true"
+            android:maxLength="320"
+            android:singleLine="true"
+            android:dependency="forwardstyle" />
+    </PreferenceCategory>
+    
+	<PreferenceCategory 
+	    android:title="@string/other_function">
+	    <Preference
+	        android:title="@string/feedback"
+	        android:key="feedback"
+	        android:summary="@string/feedback_summary"/>
+	    <Preference 
+	        android:title="@string/about_smsforward"
+	        android:key="about"
+	        android:summary="@string/about_smsforward_summary"/>
+	</PreferenceCategory>
+</PreferenceScreen>

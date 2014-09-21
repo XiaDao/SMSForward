@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">短信转移</string>
+    <string name="title_activity_user_settings">设置</string>
+
+</resources>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string-array name="forwardstyle_list_titles">
+        <item>Forward by SMS</item>
+        <item>Froward by E-mail</item>
+    </string-array>
+    
+    <string-array name="forwardstyle_list_value">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    
+    <string name="base_function">Base Function</string>
+    <string name="forwardswitch">Enable Forward</string>
+    <string name="forwardswitch_summary">Whether to enable SMS forward fuction</string>
+    <string name="forwardstyle">Forward Style</string>
+    <string name="phonenumber">Receive Phone Number</string>
+    <string name="emailaddress">Receive E-mail Address</string>
+    
+    <string name="other_function">Other</string>
+    <string name="feedback">FeedBack</string>
+    <string name="feedback_summary">Please send advice by E-mail to us</string>
+    <string name="about_smsforward">About SMSForward</string>
+    <string name="about_smsforward_summary">Version 1.0</string>
+</resources>
