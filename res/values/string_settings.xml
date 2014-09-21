@@ -3,7 +3,7 @@
     
     <string-array name="forwardstyle_list_titles">
         <item>Forward by SMS</item>
-        <item>Froward by E-mail</item>
+        <item>Forward by E-mail</item>
     </string-array>
     
     <string-array name="forwardstyle_list_value">
@@ -13,7 +13,7 @@
     
     <string name="base_function">Base Function</string>
     <string name="forwardswitch">Enable Forward</string>
-    <string name="forwardswitch_summary">Whether to enable SMS forward fuction</string>
+    <string name="forwardswitch_summary">Whether to enable SMS forward function</string>
     <string name="forwardstyle">Forward Style</string>
     <string name="phonenumber">Receive Phone Number</string>
     <string name="emailaddress">Receive E-mail Address</string>
