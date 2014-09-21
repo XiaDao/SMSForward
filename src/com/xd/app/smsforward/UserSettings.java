@@ -9,6 +9,10 @@ import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
+import android.support.v4.app.NavUtils;
+import android.view.KeyEvent;
+import android.view.MenuItem;
+import android.widget.Toast;
 
 public class UserSettings extends PreferenceActivity {
 
@@ -21,7 +25,7 @@ public class UserSettings extends PreferenceActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.user_settings);
+//		setContentView(R.layout.user_settings);
 		
 		initSettings();
 	}
@@ -35,6 +39,9 @@ public class UserSettings extends PreferenceActivity {
 	@SuppressWarnings("deprecation")
 	private void initSettings() {
 		addPreferencesFromResource(R.xml.preference);
+		
+		//Enable Forward 
+		forwardswitch = (Preference) findPreference("forwardswitch");
 		
 		//Forward Style
 		forwardstyle = (Preference) findPreference("forwardstyle");
@@ -50,6 +57,16 @@ public class UserSettings extends PreferenceActivity {
 			phonenumber.setEnabled(true);
 		}else {
 			phonenumber.setEnabled(false);
+		}
+		
+		//Receive E-mail Address
+		emailaddress = (Preference) findPreference("emailaddress");
+		emailaddress.setOnPreferenceChangeListener(listListener);
+		listListener.onPreferenceChange(emailaddress, (String) getPreferenceValue(emailaddress));
+		if(forwardstyleValue.equals("1")) {
+			emailaddress.setEnabled(true);
+		}else {
+			emailaddress.setEnabled(false);
 		}
 		
 		//Contact Us
@@ -129,4 +146,55 @@ public class UserSettings extends PreferenceActivity {
 		startActivity(Intent.createChooser(intent, "Mail Chooser"));
 	}
 	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		int id = item.getItemId();
+		switch (id) {
+		case android.R.id.home:
+			if(!isEnableReturn()) {
+				Toast.makeText(this, "信息不完整，请补充完整！", Toast.LENGTH_SHORT).show();
+				return false;
+			}
+			NavUtils.navigateUpFromSameTask(this);
+			return true;
+		default:
+			return super.onOptionsItemSelected(item);
+		}
+	}
+	
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if(keyCode == KeyEvent.KEYCODE_BACK) {
+			if(!isEnableReturn()) {
+				Toast.makeText(this, "信息不完整，请补充完整！", Toast.LENGTH_SHORT).show();
+				return false;
+			}
+		}
+		return super.onKeyDown(keyCode, event);
+	}
+	
+	/**
+	 * <p>Method Name：isEnableReturn</p>
+	 * <p>Method Description：Is Could Return</p>
+	 * @return
+	 * @author XiaDao
+	 * @since  2014-9-18
+	 */
+	private boolean isEnableReturn() {
+		if((Boolean) getPreferenceValue(forwardswitch)) {
+			String forwardstyleValue = (String) getPreferenceValue(forwardstyle);
+			if(forwardstyleValue.equals("0")) {
+				String photo = (String) getPreferenceValue(phonenumber);
+				if(photo==null || photo.length()==0) {
+					return false;
+				}
+			}else if(forwardstyleValue.equals("1")) {
+				String email = (String) getPreferenceValue(emailaddress);
+				if(email==null || email.length()==0) {
+					return false;
+				}
+			}
+		}
+		return true;
+	}
 }
